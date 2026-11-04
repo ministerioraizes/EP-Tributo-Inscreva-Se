@@ -186,8 +186,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .done-text strong { color: var(--cream); }
 .done-next { color: var(--text-secondary); font-size: .9rem; margin: 24px 0 10px; }
 .info-link { display: inline-flex; align-items: center; gap: 7px; margin-top: 6px; font-size: .88rem; font-weight: 600; color: var(--gold-light); text-decoration: underline; }
-.link-btn { margin-top: 16px; background: none; border: none; color: var(--text-secondary); font-family: var(--font-sans); font-size: .85rem; text-decoration: underline; cursor: pointer; padding: 6px; }
-.link-btn:hover { color: var(--gold-light); }
+.done-second { margin-top: 12px; }
+.form-error { background: rgba(200,80,42,.12); border: 1.5px solid rgba(232,120,64,.6); border-radius: var(--radius); padding: 16px; margin-bottom: 18px; font-size: .9rem; color: var(--cream); }
+.form-error p { margin-bottom: 12px; line-height: 1.6; }
+.btn:disabled { opacity: .7; cursor: wait; transform: none; }
 
 /* ── Canal ── */
 #canal.section { padding: 64px 0; }

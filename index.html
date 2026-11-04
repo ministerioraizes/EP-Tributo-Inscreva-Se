@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=4">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -185,7 +185,7 @@
     <div class="center reveal">
       <span class="badge">Inscrição</span>
       <h2 class="section-title">Garanta sua <em class="gold-text">participação</em></h2>
-      <p class="section-sub center-sub">Preencha seus dados. No final, você envia a inscrição pelo WhatsApp, com a mensagem já pronta.</p>
+      <p class="section-sub center-sub">Preencha seus dados para confirmar sua presença na gravação.</p>
     </div>
 
     <form id="formInscricao" class="form-card">
@@ -195,7 +195,7 @@
       </div>
       <div class="field">
         <label for="email">E-mail <span class="req" aria-hidden="true">*</span></label>
-        <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="160">
+        <input id="email" name="email" type="email" autocomplete="email" inputmode="email" required maxlength="160" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" title="Digite um e-mail válido, como nome@exemplo.com">
       </div>
       <div class="field-row">
         <div class="field">
@@ -230,23 +230,28 @@
         </div>
       </fieldset>
 
-      <button type="submit" class="btn btn-gold btn-full">Continuar <i class="fas fa-arrow-right"></i></button>
+      <div id="erroEnvio" class="form-error" role="alert" hidden>
+        <p><strong>Não conseguimos salvar sua inscrição.</strong> Tente de novo ou envie seus dados pelo WhatsApp, com a mensagem já pronta.</p>
+        <a id="linkWhatsapp" href="#" target="_blank" rel="noopener" class="btn btn-outline btn-full"><i class="fab fa-whatsapp"></i> Enviar pelo WhatsApp</a>
+      </div>
+
+      <button id="botaoEnviar" type="submit" class="btn btn-gold btn-full">Confirmar inscrição</button>
 
       <p class="form-note">
-        Menores de idade: a inscrição deve ser feita pelo responsável. Seus dados serão usados para organizar o evento e,
-        só se você autorizar, para enviar novidades do ministério. Não repassamos seus dados a terceiros. Para sair da
-        lista ou pedir a remoção, escreva para <a href="mailto:minraizesoficial@gmail.com">minraizesoficial@gmail.com</a>.
+        Menores de idade: a inscrição deve ser feita pelo responsável. Seus dados ficam guardados no Supabase, serviço
+        que usamos para armazenar as inscrições, e serão usados para organizar o evento e, só se você autorizar, para
+        enviar novidades do ministério. Não vendemos nem repassamos seus dados a outras pessoas, igrejas ou empresas.
+        Para sair da lista ou pedir a remoção, escreva para <a href="mailto:minraizesoficial@gmail.com">minraizesoficial@gmail.com</a>.
       </p>
     </form>
 
-    <div id="passoFinal" class="form-card done" tabindex="-1" hidden>
-      <div class="card-icon"><i class="fab fa-whatsapp"></i></div>
-      <h3 class="done-title">Falta só um passo</h3>
-      <p class="done-text">Toque no botão abaixo e <strong>envie a mensagem que vai aparecer pronta no WhatsApp</strong>. Sua inscrição só é concluída depois desse envio.</p>
-      <a id="linkWhatsapp" href="#" target="_blank" rel="noopener" class="btn btn-gold btn-full"><i class="fab fa-whatsapp"></i> Enviar pelo WhatsApp</a>
-      <p class="done-next">Depois de enviar, já pode ir ensaiando:</p>
-      <a href="https://ministerioraizes.github.io/ep4_tributo/" target="_blank" rel="noopener" class="btn btn-outline btn-full"><i class="fas fa-headphones"></i> Ouvir as prévias das músicas</a>
-      <button id="corrigir" type="button" class="link-btn">Corrigir meus dados</button>
+    <div id="sucesso" class="form-card done" tabindex="-1" hidden>
+      <div class="card-icon"><i class="fas fa-check"></i></div>
+      <h3 id="sucessoTitulo" class="done-title">Inscrição confirmada!</h3>
+      <p class="done-text">Esperamos você no <strong>sábado, 28 de novembro, às 19h30</strong>, no Ministério Apostólico El Shaday – Sede: Av. Contôrno Sul, 86 – Alto Alegre, Fortaleza-CE.</p>
+      <p class="done-next">Já pode ir ensaiando:</p>
+      <a href="https://ministerioraizes.github.io/ep4_tributo/" target="_blank" rel="noopener" class="btn btn-gold btn-full"><i class="fas fa-headphones"></i> Ouvir as prévias das músicas</a>
+      <a href="https://whatsapp.com/channel/0029ValfIEL4Y9lmTCh9J31x" target="_blank" rel="noopener" class="btn btn-outline btn-full done-second"><i class="fab fa-whatsapp"></i> Seguir nosso canal</a>
     </div>
   </div>
 </section>
@@ -286,6 +291,6 @@
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=3"></script>
+<script src="assets/js/main.js?v=4"></script>
 </body>
 </html>
