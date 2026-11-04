@@ -56,8 +56,8 @@ function montarMensagem(dados) {
     '',
     `*Nome:* ${texto('nome')}`,
     `*E-mail:* ${texto('email')}`,
+    `*Telefone:* ${texto('telefone')}`,
   ];
-  if (texto('bairro')) linhas.push(`*Bairro:* ${texto('bairro')}`);
   if (texto('origem')) linhas.push(`*Como fiquei sabendo:* ${texto('origem')}`);
   linhas.push(
     '*Autorizo o uso da minha imagem e voz:* Sim',
